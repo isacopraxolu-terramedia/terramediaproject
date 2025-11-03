@@ -10,7 +10,7 @@ publish_mode: editorial_workflow
 collections:
   - name: "pages"
     label: "Pagine"
-    file: "pages.json"        # <-- usa i file che hai in root
+    file: "content/pages.json"
     format: "json"
     fields:
       - label: "Home"
@@ -33,49 +33,3 @@ collections:
           - { label: "Telefono", name: "phone", widget: "string" }
           - { label: "Instagram", name: "instagram", widget: "string" }
 
-  - name: "projects"
-    label: "Eventi & Progetti"
-    file: "projects.json"
-    format: "json"
-    fields:
-      - label: "Progetti"
-        name: "items"           # <-- nome obbligatorio, non vuoto
-        widget: "list"
-        fields:
-          - {label: "ID", name: "id", widget: "string"}
-          - {label: "Titolo", name: "title", widget: "string"}
-          - {label: "Tipo", name: "type", widget: "string"}
-          - {label: "Artista", name: "artist", widget: "string"}
-          - {label: "Periodo", name: "period", widget: "string"}
-          - {label: "Luogo", name: "place", widget: "string"}
-          - {label: "Curatore (solo credit)", name: "curator", widget: "string", required: false}
-          - {label: "Testo", name: "body", widget: "text"}
-          - {label: "Copertina (opz.)", name: "cover", widget: "image", required: false}
-
-  - name: "artists"
-    label: "Artisti"
-    file: "artists.json"
-    format: "json"
-    fields:
-      - label: "Artisti"
-        name: "items"
-        widget: "list"
-        fields:
-          - {label: "ID", name: "id", widget: "string"}
-          - {label: "Nome", name: "name", widget: "string"}
-          - {label: "Ruolo", name: "role", widget: "string"}
-          - {label: "Avatar (opz.)", name: "avatar", widget: "image", required: false}
-
-  - name: "collaborations"
-    label: "Collaborazioni"
-    file: "collaborations.json"
-    format: "json"
-    fields:
-      - label: "Partner"
-        name: "items"
-        widget: "list"
-        fields:
-          - {label: "ID", name: "id", widget: "string"}
-          - {label: "Nome", name: "name", widget: "string"}
-          - {label: "Ruolo", name: "role", widget: "string"}
-          - {label: "Logo (opz.)", name: "logo", widget: "image", required: false}
