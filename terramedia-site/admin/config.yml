@@ -1,49 +1,62 @@
 backend:
   name: github
-  repo: isacopraxolu-terramedia/terramediaproject
+  repo: isacopraxolu-terramedia/terramediaproject   # <== conferma owner/nome repo
   branch: main
-  base_url: https://terramediaproject.vercel.app
+  base_url: https://www.terramediaproject.it        # dominio su Vercel
   auth_endpoint: /api/oauth
 
 media_folder: "terramedia-site/assets/uploads"
 public_folder: "/assets/uploads"
 
-publish_mode: editorial_workflow
-locale: "it"
+local_backend: false
 
 collections:
   - name: "pages"
     label: "Pagine"
     files:
-      - label: "Home"
+      - file: "terramedia-site/content/pages.json"
+        label: "Home"
         name: "home"
-        file: "terramedia-site/content/pages.json"
-        format: "json"
         fields:
           - { label: "Titolo", name: "title", widget: "string" }
           - { label: "Sottotitolo", name: "subtitle", widget: "string", required: false }
-          - { label: "Testo", name: "body", widget: "text", required: false }
+          - { label: "Corpo", name: "body", widget: "text" }
+          - { label: "Immagine di copertina", name: "hero", widget: "image", required: false }
 
   - name: "projects"
     label: "Progetti"
     folder: "terramedia-site/content/projects"
     create: true
-    format: "json"
     slug: "{{slug}}"
+    summary: "{{title}}"
     fields:
       - { label: "Titolo", name: "title", widget: "string" }
-      - { label: "Descrizione", name: "description", widget: "text", required: false }
-      - { label: "Immagine di copertina", name: "cover", widget: "image", required: false }
-      - { label: "Galleria", name: "gallery", widget: "list", field: {label: "Immagine", name: "image", widget: "image"} }
+      - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Descrizione", name: "description", widget: "text" }
+      - { label: "Immagine principale", name: "cover", widget: "image", required: false }
+      - label: "Galleria"
+        name: "gallery"
+        widget: "list"
+        required: false
+        field: { label: "Immagine", name: "image", widget: "image" }
+      - { label: "Contenuto", name: "body", widget: "markdown", required: false }
 
   - name: "artists"
     label: "Artisti"
     folder: "terramedia-site/content/artists"
     create: true
-    format: "json"
     slug: "{{slug}}"
+    summary: "{{name}}"
     fields:
       - { label: "Nome", name: "name", widget: "string" }
-      - { label: "Bio", name: "bio", widget: "text", required: false }
+      - { label: "Bio breve", name: "bio", widget: "text" }
       - { label: "Foto", name: "photo", widget: "image", required: false }
+      - label: "Link"
+        name: "links"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Etichetta", name: "label", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+
 
