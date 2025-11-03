@@ -1,1 +1,49 @@
+backend:
+  name: github
+  repo: isacopraxolu-terramedia/terramediaproject
+  branch: main
+  base_url: https://terramediaproject.vercel.app
+  auth_endpoint: /api/oauth
+
+media_folder: "terramedia-site/assets/uploads"
+public_folder: "/assets/uploads"
+
+publish_mode: editorial_workflow
+locale: "it"
+
+collections:
+  - name: "pages"
+    label: "Pagine"
+    files:
+      - label: "Home"
+        name: "home"
+        file: "terramedia-site/content/pages.json"
+        format: "json"
+        fields:
+          - { label: "Titolo", name: "title", widget: "string" }
+          - { label: "Sottotitolo", name: "subtitle", widget: "string", required: false }
+          - { label: "Testo", name: "body", widget: "text", required: false }
+
+  - name: "projects"
+    label: "Progetti"
+    folder: "terramedia-site/content/projects"
+    create: true
+    format: "json"
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Descrizione", name: "description", widget: "text", required: false }
+      - { label: "Immagine di copertina", name: "cover", widget: "image", required: false }
+      - { label: "Galleria", name: "gallery", widget: "list", field: {label: "Immagine", name: "image", widget: "image"} }
+
+  - name: "artists"
+    label: "Artisti"
+    folder: "terramedia-site/content/artists"
+    create: true
+    format: "json"
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nome", name: "name", widget: "string" }
+      - { label: "Bio", name: "bio", widget: "text", required: false }
+      - { label: "Foto", name: "photo", widget: "image", required: false }
 
