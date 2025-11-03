@@ -1,5 +1,8 @@
 [build]
   publish = "."
+  command = ""
+
+# Mantiene la barra finale per /admin
 [[redirects]]
   from = "/admin"
   to = "/admin/"
