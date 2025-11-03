@@ -1,8 +1,10 @@
 backend:
   name: github
-  repo: isacopraxolu-terramedia/terramediaproject   # <== conferma esatto nome repo
+  repo: isacopraxolu-terramedia/terramediaproject
   branch: main
   auth_type: implicit
+  app_id: Ov23liBfEto5djWoQzA5
+
 
 site_url: "https://www.terramediaproject.it"        # o quello vercel
 logo_url: "/assets/favicon.ico"
