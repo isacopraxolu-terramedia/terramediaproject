@@ -1,6 +1,7 @@
 {
-  "title": "Benvenuto in TerraMedia",
-  "subtitle": "Arte, Cultura e Visione",
-  "body": "Questa è la pagina principale del progetto TerraMedia."
+  "home": {
+    "title": "TerraMedia APS",
+    "subtitle": "Progettiamo e produciamo eventi d’arte e cultura",
+    "hero_image": "/assets/uploads/placeholder.jpg"
+  }
 }
-
