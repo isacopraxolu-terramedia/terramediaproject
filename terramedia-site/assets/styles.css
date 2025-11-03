@@ -1,0 +1,6 @@
+
+.btn { @apply inline-flex items-center justify-center rounded-2xl px-4 py-2 border border-black text-sm font-medium; }
+.btn:hover { @apply opacity-80; }
+.btn-secondary { @apply bg-black text-white; }
+.btn-outline { @apply bg-transparent; }
+.field { @apply border rounded-xl px-3 py-2; }
