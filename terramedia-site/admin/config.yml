@@ -2,38 +2,49 @@ backend:
   name: github
   repo: isacopraxolu-terramedia/terramediaproject
   branch: main
-  auth_type: implicit
-  app_id: Ov23liBfEto5djWoQzA5
+  # ⚠️ Per l'accesso con GitHub serve un piccolo server OAuth.
+  # Lo aggiungiamo dopo; intanto questa config fa sì che /admin si carichi.
 
-media_folder: "assets/uploads"
-public_folder: "/assets/uploads"
+site_url: https://www.terramediaproject.it
+display_url: https://www.terramediaproject.it
+
+media_folder: "assets/uploads"         # cartella dove salvare i file nel repo
+public_folder: "/assets/uploads"       # URL pubblico dei media
+
+publish_mode: editorial_workflow
 
 collections:
+  - name: "pages"
+    label: "Pagine"
+    files:
+      - file: "content/pages.json"
+        label: "Pagine"
+        name: "pages"
+        fields:
+          - { label: "Titolo sito", name: "siteTitle", widget: "string" }
+          - label: "Sezioni"
+            name: "sections"
+            widget: "list"
+            fields:
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Contenuto", name: "body", widget: "text" }
+
   - name: "artists"
-    label: "Artists"
+    label: "Artisti"
     folder: "content/artists"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Titolo", name: "title", widget: "string" }
-      - { label: "Descrizione", name: "body", widget: "markdown" }
+      - { label: "Nome", name: "name", widget: "string" }
+      - { label: "Bio", name: "bio", widget: "text" }
       - { label: "Immagine", name: "image", widget: "image" }
 
   - name: "projects"
-    label: "Projects"
+    label: "Progetti"
     folder: "content/projects"
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "Titolo", name: "title", widget: "string" }
-      - { label: "Descrizione", name: "body", widget: "markdown" }
-
-  - name: "pages"
-    label: "Pages"
-    files:
-      - file: "content/pages.json"
-        label: "Contenuti del sito"
-        name: "site_pages"
-        fields:
-          - { label: "Homepage – Titolo", name: "home_title", widget: "string" }
-          - { label: "Homepage – Sottotitolo", name: "home_subtitle", widget: "text" }
+      - { label: "Descrizione", name: "description", widget: "text" }
+      - { label: "Copertina", name: "cover", widget: "image" }
