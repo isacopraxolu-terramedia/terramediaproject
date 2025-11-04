@@ -2,6 +2,8 @@ backend:
   name: github
   repo: isacopraxolu-terramedia/terramediaproject
   branch: main
+  base_url: https://terramediaproject.vercel.app
+  auth_endpoint: api/auth
   # ⚠️ Per l'accesso con GitHub serve un piccolo server OAuth.
   # Lo aggiungiamo dopo; intanto questa config fa sì che /admin si carichi.
 
