@@ -3,46 +3,37 @@ backend:
   repo: isacopraxolu-terramedia/terramediaproject
   branch: main
   auth_type: implicit
-  app_id: Ov23liBfEto5djWoQzA5
+  app_id: <TUO_CLIENT_ID_GITHUB>
 
-
-site_url: "https://www.terramediaproject.it"        # o quello vercel
-logo_url: "/assets/favicon.ico"
-
-media_folder: "terramedia-site/assets/uploads"
+media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
 collections:
-  - name: "pages"
-    label: "Pagine"
-    files:
-      - file: "terramedia-site/content/pages.json"
-        name: "home"
-        label: "Home"
-        fields:
-          - {label: "Titolo", name: "home.title", widget: "string"}
-          - {label: "Sottotitolo", name: "home.subtitle", widget: "string"}
-          - {label: "Immagine principale", name: "home.hero_image", widget: "image"}
-
   - name: "artists"
-    label: "Artisti"
-    folder: "terramedia-site/content/artists"
+    label: "Artists"
+    folder: "content/artists"
     create: true
     slug: "{{slug}}"
-    extension: "json"
     fields:
-      - {label: "Nome", name: "name", widget: "string"}
-      - {label: "Bio breve", name: "bio", widget: "text"}
-      - {label: "Foto", name: "image", widget: "image"}
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Descrizione", name: "body", widget: "markdown" }
+      - { label: "Immagine", name: "image", widget: "image" }
 
   - name: "projects"
-    label: "Progetti"
-    folder: "terramedia-site/content/projects"
+    label: "Projects"
+    folder: "content/projects"
     create: true
     slug: "{{slug}}"
-    extension: "json"
     fields:
-      - {label: "Titolo", name: "title", widget: "string"}
-      - {label: "Descrizione", name: "description", widget: "text"}
-      - {label: "Copertina", name: "cover", widget: "image"}
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Descrizione", name: "body", widget: "markdown" }
 
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/pages.json"
+        label: "Contenuti del sito"
+        name: "site_pages"
+        fields:
+          - { label: "Homepage – Titolo", name: "home_title", widget: "string" }
+          - { label: "Homepage – Sottotitolo", name: "home_subtitle", widget: "text" }
