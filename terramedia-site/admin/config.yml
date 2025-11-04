@@ -3,7 +3,7 @@ backend:
   repo: isacopraxolu-terramedia/terramediaproject
   branch: main
   auth_type: implicit
-  app_id: <TUO_CLIENT_ID_GITHUB>
+  app_id: Ov23liBfEto5djWoQzA5
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
